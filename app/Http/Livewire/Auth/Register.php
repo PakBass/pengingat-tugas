@@ -25,43 +25,6 @@ class Register extends Component
         return view('livewire.auth.register');
     }
 
-    // public function register()
-    // {
-    //     $this->validate();
-
-    //     $user = User::create([
-    //         'name'      => $this->name,
-    //         'username'  => $this->username,
-    //         'email'     => $this->email,
-    //         'password'  => bcrypt($this->password),
-    //     ]);
-
-    //     $user->assignRole('mahasiswa');
-    //     $user->givePermissionTo([
-    //         'tugas',
-    //         'semester',
-    //         'mata kuliah',
-    //         'edit profile',
-    //         'ganti password'
-    //     ]);
-
-    //     $semesters = [];
-
-    //     for ($i = 1; $i <= 8; ++$i) {
-    //         $semesters[] = [
-    //             'semester_ke' => $i,
-    //             'user_id' => $user->id,
-    //             'created_at' => now()->toDateTimeString(),
-    //             'updated_at' => now()->toDateTimeString()
-    //         ];
-    //     }
-        
-    //     Semester::insert($semesters);
-
-    //     $this->showAlert('success', 'Akun berhasil didaftarkan silahkan login!');
-
-    //     return redirect(route('login'));
-    // }
     public function register()
     {
         $this->validate();
@@ -95,11 +58,48 @@ class Register extends Component
         
         Semester::insert($semesters);
 
-        // Kirim email verifikasi
-        $user->sendEmailVerificationNotification();
-
-        $this->showAlert('success', 'Akun berhasil didaftarkan. Silakan periksa email Anda untuk verifikasi!');
+        $this->showAlert('success', 'Akun berhasil didaftarkan silahkan login!');
 
         return redirect(route('login'));
     }
+    // public function register()
+    // {
+    //     $this->validate();
+
+    //     $user = User::create([
+    //         'name'      => $this->name,
+    //         'username'  => $this->username,
+    //         'email'     => $this->email,
+    //         'password'  => bcrypt($this->password),
+    //     ]);
+
+    //     $user->assignRole('mahasiswa');
+    //     $user->givePermissionTo([
+    //         'tugas',
+    //         'semester',
+    //         'mata kuliah',
+    //         'edit profile',
+    //         'ganti password'
+    //     ]);
+
+    //     $semesters = [];
+
+    //     for ($i = 1; $i <= 8; ++$i) {
+    //         $semesters[] = [
+    //             'semester_ke' => $i,
+    //             'user_id' => $user->id,
+    //             'created_at' => now()->toDateTimeString(),
+    //             'updated_at' => now()->toDateTimeString()
+    //         ];
+    //     }
+        
+    //     Semester::insert($semesters);
+
+    //     // Kirim email verifikasi
+    //     $user->sendEmailVerificationNotification();
+
+    //     $this->showAlert('success', 'Akun berhasil didaftarkan. Silakan periksa email Anda untuk verifikasi!');
+
+    //     return redirect(route('login'));
+    // }
 }

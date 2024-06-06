@@ -7,7 +7,7 @@ use App\Http\Livewire\{Semester, Matkul, UserList, Tugas};
 use Illuminate\Support\Facades\Route;
 
 //verifikasi email user
-Auth::routes(['verify' => true]);
+// Auth::routes(['verify' => true]);
 
 Route::view('/', 'home')->name('home');
 Route::view('/about', 'about')->name('about');
